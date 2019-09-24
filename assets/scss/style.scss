@@ -92,6 +92,40 @@ strong {
     }
 }
 
+@mixin fadein ($x:0px, $y:-50px) {
+    opacity: 0;
+    transform: translate($x, $y);
+    transition: all 3s;
+    display: block;
+
+    &.scrollin {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+.fadein {
+    &-stop {
+        @include fadein(0, 0);
+    }
+
+    &-top {
+        @include fadein();
+    }
+
+    &-bottom {
+        @include fadein(0, 20px);
+    }
+
+    &-left {
+        @include fadein(-50px, 0px);
+    }
+
+    &-right {
+        @include fadein(50px, 0);
+    }
+}
+
 /*
 ------------------------------------------------------- */
 /* Base structure
